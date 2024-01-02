@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
+    const mediaContainer = document.getElementById('mediaContainer');
     const mainSection = document.querySelector('main');
 
     // Animation for the main section
@@ -16,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Display a heartfelt message
         setTimeout(function () {
             alert('Yay! 🌈 I can’t wait to create more wonderful memories together! 💑');
+            // Show the attached media (image, gif, or sticker)
+            showMedia('cute-love.gif'); // Replace with the actual filename
         }, 500);
     });
 
@@ -33,4 +36,64 @@ document.addEventListener('DOMContentLoaded', function () {
             gsap.to(noBtn, { x: 0, opacity: 1, duration: 0.1 });
         }, 1000);
     });
+
+    function showMedia(mediaFileName) {
+        // Clear existing media in the container
+        mediaContainer.innerHTML = '';
+
+        // Determine the media type based on the file extension
+        const fileExtension = mediaFileName.split('.').pop().toLowerCase();
+
+        switch (fileExtension) {
+            case 'jpg':
+            case 'jpeg':
+            case 'png':
+                // For images
+                showImage(mediaFileName);
+                break;
+            case 'gif':
+                // For GIFs
+                showGif(mediaFileName);
+                break;
+            case 'webp':
+            case 'sticker':
+                // For stickers (you can customize the handling of sticker files)
+                showSticker(mediaFileName);
+                break;
+            default:
+                alert('Unsupported media type.');
+        }
+
+        // Show the media container
+        mediaContainer.style.display = 'block';
+    }
+
+    function showImage(imageFileName) {
+        // Create an image element
+        const imageElement = document.createElement('img');
+        imageElement.src = imageFileName;
+        imageElement.alt = 'Romantic Image';
+        imageElement.style.width = '100%';
+
+        // Append the image to the media container
+        mediaContainer.appendChild(imageElement);
+    }
+
+    function showGif(gifFileName) {
+        // Create a video element for better GIF support
+        const videoElement = document.createElement('video');
+        videoElement.src = gifFileName;
+        videoElement.alt = 'Romantic Gif';
+        videoElement.style.width = '100%';
+        videoElement.setAttribute('autoplay', true);
+        videoElement.setAttribute('loop', true);
+
+        // Append the video to the media container
+        mediaContainer.appendChild(videoElement);
+    }
+
+    function showSticker(stickerFileName) {
+        // For stickers or custom handling (e.g., display a sticker pack)
+        alert('Sticker display not implemented in this example.');
+    }
 });
