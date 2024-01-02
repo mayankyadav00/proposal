@@ -1,0 +1,67 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbd3e9;
+}
+
+header {
+    background-color: #ff6b6b;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative; /* Added for positioning No button */
+}
+
+#invitation {
+    margin-bottom: 30px;
+}
+
+#response {
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#yesBtn {
+    background-color: #6dd5ed;
+    color: #205493;
+    padding: 15px 30px;
+    border: 2px solid #205493;
+}
+
+#noBtn {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 15px 30px;
+    border: 2px solid #c7384f;
+}
+
+footer {
+    background-color: #ff6b6b;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
